@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Localization
+    const translations = {
+        en: {
+            language: "Language", currency: "Currency", start: "Campaign Start", end: "Campaign End",
+            revenue: "Total Revenue", avgOrder: "Avg. Order Value", months: "Months",
+            prospects: "Prospects", leads: "Leads", customers: "Customers",
+            leadRate: "Lead Response Rate", prospectRate: "Prospect Response Rate",
+            people: "people", month: "Month"
+        },
+        bg: {
+            language: "Език", currency: "Валута", start: "Начало на кампания", end: "Край на кампания",
+            revenue: "Общи приходи", avgOrder: "Ср. стойност на поръчка", months: "Месеци",
+            prospects: "Контакти (Prospects)", leads: "Потенц. клиенти (Leads)", customers: "Клиенти",
+            leadRate: "Процент отговор (Leads)", prospectRate: "Процент отговор (Prospects)",
+            people: "души", month: "Месец"
+        },
+        de: {
+            language: "Sprache", currency: "Währung", start: "Kampagnenstart", end: "Kampagnenende",
+            revenue: "Gesamtumsatz", avgOrder: "Durchschn. Bestellwert", months: "Monate",
+            prospects: "Interessenten", leads: "Leads", customers: "Kunden",
+            leadRate: "Lead-Rücklaufquote", prospectRate: "Interessenten-Rücklaufquote",
+            people: "Personen", month: "Monat"
+        }
+    };
+    let currentLang = 'en';
+
+    // UI Translation Elements
+    const langSelect = document.getElementById('languageSelect');
+    const lblLanguage = document.getElementById('lblLanguage');
+    const lblCurrency = document.getElementById('lblCurrency');
+    const lblStart = document.getElementById('lblStart');
+    const lblEnd = document.getElementById('lblEnd');
+    const lblRevenue = document.getElementById('lblRevenue');
+    const lblAvgOrder = document.getElementById('lblAvgOrder');
+    const lblMonths = document.getElementById('lblMonths');
+    const lblCardProspects = document.getElementById('lblCardProspects');
+    const lblCardLeads = document.getElementById('lblCardLeads');
+    const lblCardCustomers = document.getElementById('lblCardCustomers');
+    const lblLeadRate = document.getElementById('lblLeadRate');
+    const lblProspectRate = document.getElementById('lblProspectRate');
+
     // Inputs
     const totalRevenueInput = document.getElementById('totalRevenue');
     const avgOrderValueInput = document.getElementById('avgOrderValue');
@@ -22,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prospectRateVal = document.getElementById('prospectRateVal');
     
     const chartArea = document.getElementById('chartArea');
+    const xLabel0 = document.getElementById('xLabel0');
     const xAxisLabels = [
         document.getElementById('xLabel20'),
         document.getElementById('xLabel40'),
@@ -80,18 +122,38 @@ document.addEventListener('DOMContentLoaded', () => {
         prospectRateInput.style.background = `linear-gradient(to right, #5c6a85 ${prVal}%, #3f4b63 ${prVal}%)`;
     }
 
+    function translateUI() {
+        const text = translations[currentLang];
+        lblLanguage.innerText = text.language;
+        lblCurrency.innerText = text.currency;
+        lblStart.innerText = text.start;
+        lblEnd.innerText = text.end;
+        lblRevenue.innerText = text.revenue;
+        lblAvgOrder.innerText = text.avgOrder;
+        lblMonths.innerText = text.months;
+        lblCardProspects.innerText = text.prospects;
+        lblCardLeads.innerText = text.leads;
+        lblCardCustomers.innerText = text.customers;
+        lblLeadRate.innerText = text.leadRate;
+        lblProspectRate.innerText = text.prospectRate;
+    }
+
     function drawChart(tProspects, tLeads, tCustomers) {
         chartArea.innerHTML = ''; // clear
+        const t = translations[currentLang];
         
         // Dynamic X-Axis labeling based on prospects
         // Max value on graph usually lines up with slightly more than total prospects
         let xMax = tProspects > 0 ? Math.ceil(tProspects / 6) * 6 : 120; 
         if(xMax < 120) xMax = 120; // fallback aesthetic minimum
         
+        // Base 0 label
+        xLabel0.innerText = `0 ${t.people}`;
+        
         // Adjust the X Labels dynamically
         xAxisLabels.forEach((label, i) => {
             const val = Math.round((xMax / 6) * (i + 1));
-            label.innerText = `${val} people`;
+            label.innerText = `${val} ${t.people}`;
         });
 
         // Generate 6 rows for 6 months (cumulative growth to full size)
@@ -119,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tooltip = document.createElement('div');
             tooltip.className = 'chart-tooltip';
             tooltip.style.display = 'none';
-            tooltip.innerHTML = `Month #${i}<br>Prospects: ${pros}<br>Leads: ${lds}<br>Customers: ${cust}`;
+            tooltip.innerHTML = `${t.month} #${i}<br>${t.prospects}: ${pros}<br>${t.leads}: ${lds}<br>${t.customers}: ${cust}`;
             row.appendChild(tooltip);
 
             row.addEventListener('mouseenter', () => tooltip.style.display = 'block');
@@ -130,6 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event Listeners
+    langSelect.addEventListener('change', (e) => {
+        currentLang = e.target.value;
+        translateUI();
+        calculate(); // Redraws chart correctly with new language translation
+    });
+
     const inputs = [totalRevenueInput, avgOrderValueInput, leadRateInput, prospectRateInput];
     inputs.forEach(input => {
         input.addEventListener('input', () => {
@@ -139,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initial render
+    translateUI();
     calculate();
     updateSliderStyles();
     
