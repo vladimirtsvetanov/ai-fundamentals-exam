@@ -103,6 +103,17 @@ body {
     font-size: 0.9rem;
 }
 
+/* Hide number input arrows for clean look */
+.currency-input input[type="number"]::-webkit-inner-spin-button,
+.currency-input input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.currency-input input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
 /* Right Content */
 .content-right {
     flex: 1;
