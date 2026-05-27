@@ -25,33 +25,17 @@ body {
 .header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 5px;
-}
-
-.header h1 {
-    font-size: 1.8rem;
-    margin: 0;
-    letter-spacing: -0.5px;
-}
-
-.brand-bold {
-    font-weight: 800;
-    color: #ffffff;
-}
-
-.brand-light {
-    font-weight: 400;
-    color: #a1b0c0;
+    font-size: 1.5rem;
+    gap: 10px;
+    color: #ccd5e0;
 }
 
 .header-icon {
-    background: linear-gradient(135deg, #e2e8f0 0%, #a0aec0 100%);
+    background-color: #cdd6e0;
     color: #1a1f2b;
-    padding: 8px 10px;
-    border-radius: 8px;
-    font-size: 1.4rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 1.2rem;
 }
 
 .main-content {
