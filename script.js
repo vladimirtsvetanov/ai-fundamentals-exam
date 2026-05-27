@@ -163,10 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const row = document.createElement('div');
             row.className = 'chart-row';
             
-            // Widths relative to xMax
-            const pw = (pros / xMax) * 100;
-            const lw = (lds / xMax) * 100;
-            const cw = (cust / xMax) * 100;
+            // Widths relative to xMax (cap at 100% so they don't overflow the chart area)
+            const pw = Math.min((pros / xMax) * 100, 100);
+            const lw = Math.min((lds / xMax) * 100, 100);
+            const cw = Math.min((cust / xMax) * 100, 100);
 
             row.innerHTML = `
                 <div class="chart-bar bar-prospects" style="width: ${pw}%"></div>
