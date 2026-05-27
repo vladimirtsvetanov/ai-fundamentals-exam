@@ -1,0 +1,311 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1f2b;
+    color: #e0e6ed;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 10px;
+    color: #ccd5e0;
+}
+
+.header-icon {
+    background-color: #cdd6e0;
+    color: #1a1f2b;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #232a3b;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #2f384f;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #a0aec0;
+}
+
+.input-group select, .input-group input[type="date"], .input-group input[type="number"] {
+    background-color: #2b3445;
+    border: 1px solid #3f4b63;
+    color: #e0e6ed;
+    padding: 10px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.currency-input {
+    display: flex;
+    align-items: center;
+    background-color: #2b3445;
+    border: 1px solid #3f4b63;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+.currency-input span {
+    color: #a0aec0;
+}
+
+.currency-input input {
+    border: none;
+    background: transparent;
+    flex: 1;
+}
+
+/* Right Content */
+.content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.top-panel {
+    display: flex;
+    gap: 20px;
+}
+
+/* Chart Area */
+.chart-container {
+    flex: 1;
+    background-color: #232a3b;
+    border: 1px solid #2f384f;
+    border-radius: 12px;
+    position: relative;
+    padding: 20px 20px 40px 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.y-label-vertical {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 0.75rem;
+    color: #a0aec0;
+    letter-spacing: 1px;
+}
+
+.chart-y-axis {
+    position: absolute;
+    left: 45px;
+    top: 30px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 0.75rem;
+    color: #a0aec0;
+}
+
+.chart-area {
+    flex: 1;
+    position: relative;
+    border-left: 1px solid #3f4b63;
+    border-bottom: 1px solid #3f4b63;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-image: linear-gradient(to right, #2f384f 1px, transparent 1px);
+    background-size: 16.66% 100%;
+}
+
+.chart-row {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chart-bar {
+    position: absolute;
+    height: 80%;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.bar-prospects { background-color: #5c6a85; z-index: 1; }
+.bar-leads { background-color: #8c9bb4; z-index: 2; }
+.bar-customers { background-color: #c9d2e0; z-index: 3; }
+
+.chart-tooltip {
+    position: absolute;
+    background: rgba(43, 52, 69, 0.95);
+    border: 1px solid #5c6a85;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.chart-x-axis {
+    position: absolute;
+    bottom: 15px;
+    left: 60px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #a0aec0;
+}
+
+/* Summary Cards */
+.summary-cards {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card {
+    background-color: #a1b0c0;
+    color: #232a3b;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-header i {
+    margin-right: 5px;
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #8c9ab0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #1a1f2b;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Bottom Panel (Sliders) */
+.bottom-panel {
+    background-color: #232a3b;
+    border: 1px solid #2f384f;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.slider-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.slider-header label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.slider-value {
+    position: absolute;
+    right: 0;
+    bottom: -22px;
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #3f4b63;
+    border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #e0e6ed;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Dynamically generated slider fills via JS inline vars or style update */
