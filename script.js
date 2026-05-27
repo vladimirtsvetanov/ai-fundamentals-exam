@@ -142,17 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
         chartArea.innerHTML = ''; // clear
         const t = translations[currentLang];
         
-        // Dynamic X-Axis labeling based on prospects
-        // Max value on graph usually lines up with slightly more than total prospects
-        let xMax = tProspects > 0 ? Math.ceil(tProspects / 6) * 6 : 120; 
-        if(xMax < 120) xMax = 120; // fallback aesthetic minimum
+        let xMax = 120;
         
         // Base 0 label
         xLabel0.innerText = `0 ${t.people}`;
         
-        // Adjust the X Labels dynamically
+        // Labels fixed as requested
         xAxisLabels.forEach((label, i) => {
-            const val = Math.round((xMax / 6) * (i + 1));
+            const val = 20 * (i + 1);
             label.innerText = `${val} ${t.people}`;
         });
 
