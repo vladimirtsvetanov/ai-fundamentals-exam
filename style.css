@@ -25,17 +25,33 @@ body {
 .header {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
-    gap: 10px;
-    color: #e0e6ed;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.brand-bold {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.brand-light {
+    font-weight: 400;
+    color: #a1b0c0;
 }
 
 .header-icon {
-    background-color: #3b82f6;
-    color: white;
-    padding: 8px;
-    border-radius: 6px;
-    font-size: 1.2rem;
+    background: linear-gradient(135deg, #e2e8f0 0%, #a0aec0 100%);
+    color: #1a1f2b;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .main-content {
@@ -252,10 +268,6 @@ body {
     margin-right: 5px;
 }
 
-.card-header i.fa-folder { color: #3b82f6; }
-.card-header i.fa-user { color: #10b981; }
-.card-header i.fa-trophy { color: #f59e0b; }
-
 .card-value {
     font-size: 2rem;
     font-weight: 700;
@@ -263,17 +275,14 @@ body {
 
 .progress-bar {
     height: 8px;
-    background-color: #3f4b63;
+    background-color: #8c9ab0;
     border-radius: 4px;
     overflow: hidden;
 }
 
-#prospectsBar.progress { background-color: #3b82f6; }
-#leadsBar.progress { background-color: #10b981; }
-#customersBar.progress { background-color: #f59e0b; }
-
 .progress {
     height: 100%;
+    background-color: #1a1f2b;
     border-radius: 4px;
     transition: width 0.3s ease;
 }
