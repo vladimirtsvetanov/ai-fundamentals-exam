@@ -28,8 +28,10 @@
                 
                 <div class="input-group">
                     <label id="lblCurrency">Currency</label>
-                    <select>
-                        <option>$ US Dollar</option>
+                    <select id="currencySelect">
+                        <option value="$">$ US Dollar</option>
+                        <option value="€">€ Euro</option>
+                        <option value="£">£ British Pound</option>
                     </select>
                 </div>
                 
@@ -46,7 +48,7 @@
                 <div class="input-group">
                     <label id="lblRevenue">Total Revenue</label>
                     <div class="currency-input">
-                        <span>$</span>
+                        <span class="currency-symbol">$</span>
                         <input type="number" id="totalRevenue" value="10000">
                     </div>
                 </div>
@@ -54,7 +56,7 @@
                 <div class="input-group">
                     <label id="lblAvgOrder">Avg. Order Value</label>
                     <div class="currency-input">
-                        <span>$</span>
+                        <span class="currency-symbol">$</span>
                         <input type="number" id="avgOrderValue" value="1000">
                     </div>
                 </div>

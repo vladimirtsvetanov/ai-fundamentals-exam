@@ -195,6 +195,14 @@ document.addEventListener('DOMContentLoaded', () => {
         calculate(); // Redraws chart correctly with new language translation
     });
 
+    const currencySelect = document.getElementById('currencySelect');
+    const currencySymbols = document.querySelectorAll('.currency-symbol');
+    
+    currencySelect.addEventListener('change', (e) => {
+        const symbol = e.target.value;
+        currencySymbols.forEach(el => el.innerText = symbol);
+    });
+
     const inputs = [totalRevenueInput, avgOrderValueInput, leadRateInput, prospectRateInput];
     inputs.forEach(input => {
         input.addEventListener('input', () => {
