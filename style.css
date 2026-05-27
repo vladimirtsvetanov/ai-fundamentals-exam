@@ -68,7 +68,7 @@ body {
     color: #a0aec0;
 }
 
-.input-group select, .input-group input[type="date"], .input-group input[type="number"] {
+.input-group select, .input-group input[type="date"] {
     background-color: #2b3445;
     border: 1px solid #3f4b63;
     color: #e0e6ed;
@@ -85,16 +85,33 @@ body {
     border: 1px solid #3f4b63;
     border-radius: 8px;
     padding-left: 10px;
+    overflow: hidden;
 }
 
 .currency-input span {
     color: #a0aec0;
+    padding-left: 5px;
 }
 
 .currency-input input {
     border: none;
     background: transparent;
     flex: 1;
+    color: #e0e6ed;
+    padding: 10px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+/* Hide number input arrows for clean look */
+.currency-input input[type="number"]::-webkit-inner-spin-button,
+.currency-input input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.currency-input input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
 }
 
 /* Right Content */
