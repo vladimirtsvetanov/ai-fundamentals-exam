@@ -116,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateSliderStyles() {
         const lrVal = leadRateInput.value;
-        leadRateInput.style.background = `linear-gradient(to right, #10b981 ${lrVal}%, #3f4b63 ${lrVal}%)`;
+        leadRateInput.style.background = `linear-gradient(to right, #ced6e0 ${lrVal}%, #3f4b63 ${lrVal}%)`;
         
         const prVal = prospectRateInput.value;
-        prospectRateInput.style.background = `linear-gradient(to right, #3b82f6 ${prVal}%, #3f4b63 ${prVal}%)`;
+        prospectRateInput.style.background = `linear-gradient(to right, #5c6a85 ${prVal}%, #3f4b63 ${prVal}%)`;
     }
 
     function translateUI() {
@@ -217,6 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSliderStyles();
     
     // Set initial custom slider backgrounds
-    leadRateInput.style.background = `linear-gradient(to right, #10b981 40%, #3f4b63 40%)`;
-    prospectRateInput.style.background = `linear-gradient(to right, #3b82f6 20%, #3f4b63 20%)`;
+    leadRateInput.style.background = `linear-gradient(to right, #ced6e0 40%, #3f4b63 40%)`;
+    prospectRateInput.style.background = `linear-gradient(to right, #5c6a85 20%, #3f4b63 20%)`;
 });
