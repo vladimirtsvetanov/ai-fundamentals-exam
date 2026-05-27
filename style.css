@@ -27,12 +27,12 @@ body {
     align-items: center;
     font-size: 1.5rem;
     gap: 10px;
-    color: #ccd5e0;
+    color: #e0e6ed;
 }
 
 .header-icon {
-    background-color: #cdd6e0;
-    color: #1a1f2b;
+    background-color: #3b82f6;
+    color: white;
     padding: 8px;
     border-radius: 6px;
     font-size: 1.2rem;
@@ -54,6 +54,7 @@ body {
     flex-direction: column;
     gap: 15px;
     border: 1px solid #2f384f;
+    height: fit-content;
 }
 
 .input-group {
@@ -111,6 +112,7 @@ body {
 }
 
 .currency-input input[type="number"] {
+    appearance: textfield;
     -moz-appearance: textfield; /* Firefox */
 }
 
@@ -250,6 +252,10 @@ body {
     margin-right: 5px;
 }
 
+.card-header i.fa-folder { color: #3b82f6; }
+.card-header i.fa-user { color: #10b981; }
+.card-header i.fa-trophy { color: #f59e0b; }
+
 .card-value {
     font-size: 2rem;
     font-weight: 700;
@@ -257,14 +263,17 @@ body {
 
 .progress-bar {
     height: 8px;
-    background-color: #8c9ab0;
+    background-color: #3f4b63;
     border-radius: 4px;
     overflow: hidden;
 }
 
+#prospectsBar.progress { background-color: #3b82f6; }
+#leadsBar.progress { background-color: #10b981; }
+#customersBar.progress { background-color: #f59e0b; }
+
 .progress {
     height: 100%;
-    background-color: #1a1f2b;
     border-radius: 4px;
     transition: width 0.3s ease;
 }
