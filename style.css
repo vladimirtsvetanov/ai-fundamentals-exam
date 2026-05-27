@@ -54,6 +54,7 @@ body {
     flex-direction: column;
     gap: 15px;
     border: 1px solid #2f384f;
+    height: fit-content;
 }
 
 .input-group {
